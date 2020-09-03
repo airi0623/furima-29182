@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-03T11:59:06.436Z" agent="5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36" etag="lAu10MzSYxv4ZaYaU2Nc" version="13.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-03T12:00:38.333Z" agent="5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36" etag="wwyU4y_Nb28y7de7uozP" version="13.6.6" type="github">
   <diagram id="48rqmKpTKFCgV5Ji868A" name="Page-1">
     <mxGraphModel dx="946" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -142,7 +142,7 @@
         <mxCell id="Y9J6DQePMJ58XrVkBvrN-207" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;endArrow=ERoneToMany;endFill=0;fontSize=13;" parent="Y9J6DQePMJ58XrVkBvrN-205" source="Y9J6DQePMJ58XrVkBvrN-206" target="Y9J6DQePMJ58XrVkBvrN-206" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Y9J6DQePMJ58XrVkBvrN-211" value="greats" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+        <mxCell id="Y9J6DQePMJ58XrVkBvrN-211" value="favorites" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
           <mxGeometry x="440" y="690" width="140" height="110" as="geometry" />
         </mxCell>
         <mxCell id="Y9J6DQePMJ58XrVkBvrN-212" value="good&#xa;&#xa;product_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=13;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="Y9J6DQePMJ58XrVkBvrN-211" vertex="1">
