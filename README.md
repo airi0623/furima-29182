@@ -32,13 +32,12 @@ Things you may want to cover:
 | nickname             | string     | null: false  |
 | email                | string     | null: false  |
 | password             | string     | null: false  |
+| encrypted_password   | string     | null: false  |
 | family_name          | string     | null: false  |
 | first_name           | string     | null: false  |
 | family_name_kana     | string     | null: false  |
 | first_name_kana      | string     | null: false  |
-| birth_year_id        | integer    | null: false  |
-| birth_month_id       | integer    | null: false  |
-| birth_day_id         | integer    | null: false  |
+| birth_date           | date       | null: false  |
 
 ### Association
 - has_many   :products
@@ -53,17 +52,19 @@ Things you may want to cover:
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
 | image                | string     | null: false  |
-| seller               | string     | null: false  |
+| products_name        | string     | null: false  |
 | price                | integer    | null: false  |
+| detail               | string     | null: false  |
+| user                 | references | null: false  |
 | category_id          | integer    | null: false  |
 | status_id            | integer    | null: false  |
-| shipping_charges_id  | integer    | null: false  |
-| shipping_ region_id  | integer    | null: false  |
+| shipping_charge_id   | integer    | null: false  |
+| shipping_region_id   | integer    | null: false  |
 | date_shipment_id     | integer    | null: false  |
 
 ### Association
 - belongs_to   :users
-- has_many     :favorites
+<!-- - has_many     :favorites -->
 - has_many     :comments
 
 
@@ -84,23 +85,23 @@ Things you may want to cover:
 
 
 ## addressesテーブル
-
+<!-- references 型で記述する際は、_idは不要 -->
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
-| oder_id              | references | null: false  |
+| oder                 | references | null: false  |
 | postal_code          | string     | null: false  |
-| prefecture           | string     | null: false  |
+| prefecture_id        | string     | null: false  |
 | city                 | string     | null: false  |
 | number               | string     | null: false  |
-| building             | string     | null: false  |
-| phone                | integer    | null: false  |
+| building             | string     |              |
+| phone                | string     | null: false  |
 
 ### Association
-- belongs_to  :oders
+- belongs_to  :orders
 
 
 
-## commentsテーブル
+<!-- ## commentsテーブル
 
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
@@ -111,11 +112,11 @@ Things you may want to cover:
 ### Association
 - belongs_to  :products
 - has_many    :user_comments
-- has_many :users, through: user_comments
+- has_many :users, through: user_comments -->
 
 
 
-## user_commentsテーブル
+<!-- ## user_commentsテーブル
 
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
@@ -124,15 +125,15 @@ Things you may want to cover:
 
 ### Association
 - belongs_to  :users
-- belongs_to  :products
+- belongs_to  :products -->
 
 
 
-## favoritesテーブル
+<!-- ## favoritesテーブル
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
 | good                 | ●●         | null: false  |
 | product_id           | references | null: false  |
 
 ### Association
-- belongs_to  :products
+- belongs_to  :products -->
