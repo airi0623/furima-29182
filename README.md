@@ -41,8 +41,8 @@ Things you may want to cover:
 ### Association
 - has_many   :products
 - has_one    :order
-- has_many   :user_comments
-- has_many   :comments, through: user_comments
+<!-- - has_many   :user_comments
+- has_many   :comments, through: user_comments -->
 
 
 
@@ -62,9 +62,8 @@ Things you may want to cover:
 
 ### Association
 - belongs_to   :users
-- has_many     :comments
-- has_one    :order
-
+- has_one      :order
+<!-- - has_many     :comments -->
 
 
 ## odersテーブル
