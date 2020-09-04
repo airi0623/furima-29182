@@ -66,6 +66,7 @@ Things you may want to cover:
 - belongs_to   :users
 <!-- - has_many     :favorites -->
 - has_many     :comments
+- has_one    :order
 
 
 
