@@ -1,4 +1,3 @@
-Faker::Config.locale = :ja
 FactoryBot.define do
   factory :user do
     email { Faker::Internet.free_email}
@@ -6,8 +5,8 @@ FactoryBot.define do
     password {password}
     password_confirmation {password}
     nickname { Faker::Name.last_name }
-    family_name { Faker::Name.last_name }
-    first_name { Faker::Name.first_name }
+    family_name { Gimei.last.kanji }
+    first_name { Gimei.first.kanji }
     family_name_kana { Gimei.last.katakana }
     first_name_kana { Gimei.first.katakana }
     birth_date { Faker::Date.birthday }
