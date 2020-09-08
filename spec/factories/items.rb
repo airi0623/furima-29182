@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
     item_name {Takarabako.open}
-    detail {Faker::Base.regexify("[aあ]{1,50}")}
+    detail {Faker::Base.regexify("[aあ]{1,1000}")}
     #{Faker::Books::Lovecraft.sentences}
     association :user
     category_id {Faker::Number.between(from: 2, to: 10)}

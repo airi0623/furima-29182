@@ -18,10 +18,6 @@ RSpec.describe Item, type: :model do
       end
 
       context '商品登録がうまくいかない時' do
-        it "ログインしていなければ商品登録ができない" do
-          
-        end
-
         it "画像がないと登録ができない" do
           @item.image = nil
           @item.valid?

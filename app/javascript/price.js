@@ -4,8 +4,6 @@ function price() {
   const profitPrice= document.getElementById("profit");
 
   priceSeller.addEventListener("input",function(){
-    // console.log(e)入力した時に挙動が見られる
-    // console.log(priceSeller)
     const price = priceSeller.value
       taxPrice.innerHTML = Math.floor(price * 0.01);
       profitPrice.innerHTML = Math.floor(price * 0.09);
