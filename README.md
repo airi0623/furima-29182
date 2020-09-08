@@ -46,12 +46,11 @@ Things you may want to cover:
 
 
 
-## productsテーブル
+## itemsテーブル
 
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
-| products_name        | string     | null: false  |
-| price                | integer    | null: false  |
+| item_name            | string     | null: false  |
 | detail               | string     | null: false  |
 | user                 | references | null: false  |
 | category_id          | integer    | null: false  |
@@ -62,7 +61,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to   :users
-- has_one      :order
+- has_one      :orders
 <!-- - has_many     :comments -->
 
 
@@ -70,13 +69,14 @@ Things you may want to cover:
 
 | Colum                | Type       | Options      |
 | -------------------- | ---------- | ------------ |
+| price                | integer    | null: false  |
 | user                 | references | null: false  |
-| product              | references | null: false  |
+| item                 | references | null: false  |
 <!-- | price                | string     | null: false  | -->
 
 ### Association
 - belongs_to   :users
-- belongs_to   :products
+- belongs_to   :items
 - has_one      :addresses
 
 
