@@ -37,31 +37,62 @@ RSpec.describe Item, type: :model do
           # これも含まれてるけどアウトプットはないなぜ？"Category can't be blank", "Category is invalid"
         end
 
-        it "商品の状態についての情報が必須である" do
+        it "カテゴリーが '---' だと登録できない" do
+          @item.category_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Category Select")
+          # これも含まれてるけどアウトプットはないなぜ？"Category can't be blank", "Category is invalid"
+        end
+
+        it "商品の状態についての情報がないと登録できない" do
           @item.status_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include("Status Select")
         end
 
-        it "配送料の負担についての情報が必須である" do
+        it "商品の状態が '---' だと登録できない" do
+          @item.status_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Status Select")
+        end
+
+        it "配送料の負担についての情報がないと登録できない" do
           @item.shipping_charge_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include("Shipping charge Select")
         end
 
-        it "発送元の地域についての情報が必須である" do
+        it "配送料の負担が '---' だと登録できない" do
+          @item.shipping_charge_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Shipping charge Select")
+        end
+
+        it "発送元の地域についての情報がないと登録できない" do
           @item.shipping_region_id =  nil
           @item.valid?
           expect(@item.errors.full_messages).to include("Shipping region Select")
         end
 
-        it "発送日についての情報が必須である" do
-          @item.date_shipment_id =  nil
+        it "発送元の地域が '---' だと登録できない" do
+          @item.shipping_region_id = 0
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Shipping region Select")
+        end
+
+        it "発送日についての定業がないと登録できない" do
+          @item.date_shipment_id = nil
           @item.valid?
           expect(@item.errors.full_messages).to include("Date shipment Select")
         end
 
-        it "価格についての情報が必須である" do
+        it "発送日が '---' だと登録できない" do
+          @item.date_shipment_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Date shipment Select")
+        end
+
+        it "価格についての情報がないと登録できない" do
           @item.price =  nil
           @item.valid?
           expect(@item.errors.full_messages).to include("Price is out of setting range")
