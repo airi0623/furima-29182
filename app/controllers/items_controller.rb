@@ -19,11 +19,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    id = (@item.category_id) -1
-    @category = Category.data[id][:name]   
   end
-
- 
 
   private
   
