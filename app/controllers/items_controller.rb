@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.includes(:user).order("created_at DESC")
-    # or @items = Item.all.order("created_at DESC")
-    # itemsテーブルを参照する際に見るテーブルのこと。
   end  
 
   def new
@@ -25,17 +23,7 @@ class ItemsController < ApplicationController
     @category = Category.data[id][:name]   
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    @item = Item.find(params[:id])
-  end
-
-  def destroy
-    @item = Item.find(params[:id])
-  end
+ 
 
   private
   
