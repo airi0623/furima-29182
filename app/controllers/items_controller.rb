@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.includes(:user).order("created_at DESC")
+    # or @items = Item.all.order("created_at DESC")
+    # itemsテーブルを参照する際に見るテーブルのこと。
   end  
 
   def new
