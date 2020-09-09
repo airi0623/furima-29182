@@ -1,15 +1,12 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.includes(:user).order("created_at DESC")
-    # or @items = Item.all.order("created_at DESC")
-    # itemsテーブルを参照する際に見るテーブルのこと。
   end  
 
   def new
     authenticate_user!
     @item = Item.new
   end 
-
 
   def create
     @item = Item.new(item_params)
@@ -19,6 +16,10 @@ class ItemsController < ApplicationController
       render :new
     end
   end 
+
+  def show
+    @item = Item.find(params[:id])
+  end
 
   private
   
