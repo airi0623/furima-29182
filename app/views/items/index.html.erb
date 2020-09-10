@@ -130,11 +130,6 @@
         <%# 商品1つ１つ%>
         <li class='list'>
           <%= link_to item_path(item.id) do %>
-            <%# if user_sign_in?%>
-              <%#= link_to item_path(item.id), method: :get do %>
-            <%# else %>
-              <%#= link_to item_path(item.id), method: :pach do %>
-            <%# end%>
             <%# sold out 表示 %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
