@@ -5,8 +5,13 @@ function price() {
 
   priceSeller.addEventListener("input",function(){
     const price = priceSeller.value
-      taxPrice.innerHTML = Math.floor(price * 0.01);
-      profitPrice.innerHTML = Math.floor(price * 0.09);
+      if (price >= 300 && price <=9999999){
+         taxPrice.innerHTML = Math.floor(price * 0.01);
+         profitPrice.innerHTML = price - Math.floor(price * 0.01);
+      } else {
+        taxPrice.innerHTML = "--" ;
+        profitPrice.innerHTML = "--" ; 
+      }
   });
 };
 
