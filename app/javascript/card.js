@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   const form = document.getElementById("charge-form");
   form.addEventListener("submit",(e) => {
     e.preventDefault();
+    // alert("ページ読み込んだ")
     
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
@@ -15,7 +16,6 @@ window.addEventListener("load", () => {
       exp_year: `20${formData.get("exp_year")}`,
     };
     // カードの情報を送ってる
-    // console.log(card)
 
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
       // }else{
       //   alert("決済に失敗しました。")
       // }
-
+      }
       document.getElementById("card-number").removeAttribute("name");
       document.getElementById("card-cvc").removeAttribute("name");
       document.getElementById("card-exp-month").removeAttribute("name");

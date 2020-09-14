@@ -2,7 +2,7 @@ function price() {
   const priceSeller = document.getElementById("item-price");
   const taxPrice = document.getElementById("add-tax-price");
   const profitPrice= document.getElementById("profit");
-
+  // alert("ページ読み込んだ")
   priceSeller.addEventListener("input",function(){
     const price = priceSeller.value
       if (price >= 300 && price <=9999999){
@@ -15,4 +15,4 @@ function price() {
   });
 };
 
-window.addEventListener("turbolinks:load", price); // turbolinks:load Javascript 
+window.addEventListener("load", price); // turbolinks:load Javascript 
