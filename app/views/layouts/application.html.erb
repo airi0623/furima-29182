@@ -4,11 +4,15 @@
     <title>Furima29182</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+
     <%# ファビコン設定 %>
     <%= favicon_link_tag 'furima-logo.png' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
   </head>
 
