@@ -13,7 +13,6 @@ class OrderAddress
     validates :phone, format: { with: /\A[0]\d{9,10}/, message: "number input correctly", }
     validates :phone, length: { maximum: 11, message: "number too longth"}
   end
-    #validates :building, format {with:/\A(?=.*?[ぁ-んァ-ン一-龥])(?=.*?[\d])[ぁ-んァ-ン一-龥a-z\d]/, message:""}
     
     def save
     order = Order.create(user_id: user_id, item_id: item_id)
