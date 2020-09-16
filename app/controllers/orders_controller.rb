@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
+    authenticate_user!
     @item = Item.find(params[:item_id])
     if @item.order.present? || current_user.id == @item.user_id
       redirect_to root_path
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
   end
   
   def create
+    
     @item = Item.find(params[:item_id])
     @order = OrderAddress.new(order_params)
     if @order.valid?
