@@ -4,11 +4,9 @@ window.addEventListener("load", () => {
   const form = document.getElementById("charge-form");
   form.addEventListener("submit",(e) => {
     e.preventDefault();
-    // alert("ページ読み込んだ")
     
     const formResult = document.getElementById("charge-form");
     const formData = new FormData(formResult);
-    // console.log(formResult)
     const card = {
       number: formData.get("number"),
       cvc: formData.get("cvc"),
@@ -24,12 +22,6 @@ window.addEventListener("load", () => {
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='token'>`; //埋め込み型を決めてる
         renderDom.insertAdjacentHTML("beforeend", tokenObj); // ビューにトークンを埋め込んでる
-        // console.log(token) 
-        // console.log(renderDom) 
-      //   alert("決済ができました")
-      // }else{
-      //   alert("決済に失敗しました。")
-      // }
       }
       document.getElementById("card-number").removeAttribute("name");
       document.getElementById("card-cvc").removeAttribute("name");
