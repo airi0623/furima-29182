@@ -4,7 +4,8 @@ RSpec.describe OrderAddress, type: :model do
   describe 'orders#create' do
     before do
       user = FactoryBot.create(:user)
-      item = FactoryBot.build(:item, user_id: user.id)
+      item = FactoryBot.build(:item) # user_id: user.idを入れると同じuserでitemを出品する。
+      # itemのFactoryBotのassorsiation :userで別のuserを作っている。
       item.image = fixture_file_upload('public/images/test_image.png')
       item.save
       @order_address = FactoryBot.build(:order_address, item_id: item.id, user_id: user.id )
@@ -14,18 +15,6 @@ RSpec.describe OrderAddress, type: :model do
       context '購入がうまくいくとき' do
         it "郵便番号、都道府県、市区町村、電話番号が正しく入力されている時" do
           expect(@order_address).to be_valid
-        end
-
-        it "建物名が未入力でも購入できる" do
-          @order_address.building = ""
-          expect(@order_address).to be_valid
-        end
-
-        it "出品者と購入者が別人だと購入できる。" do
-          another = FactoryBot.create(:user)
-          if @order_address.user_id != another
-            expect(@order_address).to be_valid
-          end
         end
       end
 
@@ -95,6 +84,7 @@ RSpec.describe OrderAddress, type: :model do
           @order_address.valid?
           expect(@order_address.errors.full_messages).to include ("Phone number too longth")
         end
+
       end
     end
   end
