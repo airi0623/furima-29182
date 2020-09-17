@@ -35,7 +35,9 @@
     <% end %>    
     <%# ログインしている && @item.user_idと違う人 && 商品が売れていない %>
     <% unless user_signed_in? && @item.user_id == current_user.id %>
-      <%= link_to '購入画面に進む', item_orders_path(@item.id), method: :get, class:"item-red-btn"%>
+      <% unless @item.order.present?%>
+        <%= link_to '購入画面に進む', item_orders_path(@item.id), method: :get, class:"item-red-btn"%>
+      <% end %>
     <% end %>
     <%# ログインの有無、ユーザーの分岐処理↑↑↑↑ %>
 
