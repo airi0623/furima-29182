@@ -27,7 +27,9 @@
 
     <%# ログインしている && @item.user_idと同じ場合 %>
     <% if user_signed_in? && @item.user_id == current_user.id %>
-      <% unless @item.order.present?%>
+      <% unless @item.order.present?%> <%# ひも付きを確認している%>
+      <%# present?・・・@itemに紐づくoderが存在するかを確認している %>
+      <%# Oder.exist?(item_id: @item.id) %>
         <%= link_to '商品の編集', edit_item_path , method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
       <% end %>  
