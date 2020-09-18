@@ -54,6 +54,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-i18n'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -64,9 +65,9 @@ group :production do
 end
 
 gem 'devise'
-
 gem 'pry-rails'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'payjp'
+gem 'rails-i18n'
