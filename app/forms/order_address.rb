@@ -7,6 +7,7 @@ class OrderAddress
     validates :prefecture_id, numericality: {other_than: 0, message: "Select" }
     validates :city, format: { with: /\A(.*?市)?(.*?区)?(.*?郡)?[ぁ-んァ-ン一-龥].*?/, message: "input correctly" }
     validates :number
+    #validates :nickname, presence: { message: 'ニックネームを入力してください' }
     validates :phone, format: { with: /\A[0]\d{9,10}/, message: "number input correctly", }
     validates :phone, length: { maximum: 11, message: "number too longth"}
   end
