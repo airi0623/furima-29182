@@ -12,6 +12,7 @@ require("../card")
 require('../preview')
 require('../carousel')
 require('../slick.min')
+require('../header')
 require('jquery')
 
 

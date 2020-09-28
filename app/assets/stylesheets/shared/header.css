@@ -60,13 +60,15 @@
 
 }
 
-.category-list {
+.category-btn {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
+  position: relative;
+  padding: 10px 20px;
 }
 
-.brand-list {
+.brand-btn {
   text-decoration: none;
   color: #333333;
 }
@@ -101,4 +103,18 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+/* リスト表示 */
+.show-list {
+  display: none;
+  position: absolute;
+  top: 110px;
+  
+  padding: 20px
+}
+
+.category-list{
+  padding: 15px 25px 15px 15px;
+  background-color: #FFF;
 }
