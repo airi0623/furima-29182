@@ -89,13 +89,14 @@
   margin-bottom: 15px;
 }
 
+/* ----------------------追加*/
 .image-size{
   width: 200px;
   height: 150px;
-  /*object-fit: cover;*/
   object-fit: contain;
 }
-
+/*object-fit: cover;*/
+/* ----------------------追加*/
 /* /出品画像 */
 
 /* 商品名と商品説明 */

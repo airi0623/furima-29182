@@ -7,7 +7,14 @@
       <%= @item.item_name %>
     </h2>
     <div class='item-img-content'>
-      <%= image_tag @item.image ,class:"item-box-img" %>
+      <div id='slick'>
+        <%#= image_tag @item.image ,class:"item-box-img" %>
+        <% @item.images.each do |image| %>
+          <li>
+            <%= image_tag image, class:'item-box-img' %>
+          </li>
+        <% end %>
+      </div>
       <%# sold outを表示 -----------------------%>
       <% if @item.order.present?%>
         <div class='sold-out'>
@@ -16,6 +23,7 @@
       <% end %>
       <%# sold outを表示 -----------------------%>
     </div>
+    
     <div class="item-price-box">
       <span class="item-price">
         <%=  @item.price %>  円

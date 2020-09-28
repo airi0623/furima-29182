@@ -8,7 +8,8 @@ class Item < ApplicationRecord
 
   belongs_to   :user
   has_one      :order
-  has_one_attached :image
+  has_many_attached :images
+  # ここでカラム名が決まる アクティブハッシュの
 
   #空の投稿を保存できないようにする
   with_options presence: true do
@@ -20,7 +21,7 @@ class Item < ApplicationRecord
     validates :shipping_region_id, format: {with: /\d/}
     validates :date_shipment_id, format: {with: /\d/}
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は(¥300〜9,999,999)の範囲で入力してください"}
-    validates :image
+    validates :images
     validates :user_id
     #ジャンルの選択が「--」の時は保存できないようにする
     validates :category_id, numericality: { other_than: 1, message: "を選択してください" } 
