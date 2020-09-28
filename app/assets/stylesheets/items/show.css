@@ -31,7 +31,25 @@
   min-height: 500px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
+  margin:0 auto;
 }
+
+#slick {
+  width: 60vw;
+  height: 500px;
+}
+
+
+.slick-slide{
+
+}
+
+/* .slick-dots li button:before {
+  content: "●";
+  font-size: 40px !important;
+  color: black;
+} */
+
 
 .item-price-box {
   margin: 25px 0px;

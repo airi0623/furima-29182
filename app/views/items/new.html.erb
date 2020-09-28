@@ -24,10 +24,22 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :images, name:"item[images][]", id:"item-image"%>
       </div>
     </div>
+    <!--  preview -->
+    <div id="image-list"></div>
+    <!--  preview -->
     <%# /出品画像 %>
+
+    <!-- 画像複数枚 -->
+    <% @item.images.each do |image| %>
+      <%= image_tag image, class: 'image-size' %>
+    <% end %>
+    <!-- 画像複数枚 -->
+
+    <%# /出品画像 %>
+
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
