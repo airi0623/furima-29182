@@ -11,8 +11,13 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-btn", id: "category-btn" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-btn", id: "brand-btn" %></li>
+      <li><%= link_to 'カテゴリーから探す', "#", class: "category-btn", id: "category-btn" %></li>
+        <ul class='show-list' id="pull-down-category" >
+          <% @categorys.each do |category|%>
+            <div class ='category-list'><%= link_to category.name, category_search_items_path(category.id), method: :get %></div>
+          <%end%> 
+        </ul>   
+      <li><%= link_to 'ブランドから探す', "#", class: "brand-btn", id: "brand-btn" %></li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
@@ -25,14 +30,17 @@
     </ul>
   </div>
 
-  <!--カテゴリーリスト-->
-    
-  <ul class='show-list', id="pull-down-category" >
-    <% @categorys.each do |category|%>
-      <li class ='category-list'><%= link_to category.name, category_search_items_path(category.id), method: :get %></li>
-      <%end%> 
+  <!--  -->
+   
+
+  <%# <div class='show-list' >
+    <ul id="pull-down-category">
+      <li class ='category-list'>ああああああ</li>
+      <li class ='category-list'>ああああああ</li>
+      <li class ='category-list'>ああああああ</li>
+      <li class ='category-list'>ああああああ</li>
     </ul>
-    <!--カテゴリーリスト-->
+  </div> %>
 </header>
 
 

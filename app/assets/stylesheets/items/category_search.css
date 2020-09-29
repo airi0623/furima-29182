@@ -1,0 +1,39 @@
+/* TOPのバー ------------------*/
+.title-bar{
+  height: 60px;
+  width: 100vw;
+  margin-bottom: 20px;
+  background-color: #3bcacd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-title{
+  color: #3bcacd;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 検索画面 ------------------*/
+.search-contents{
+  background-color: #FFF;
+  padding: 2vh 15vw 0 15vw;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-box{
+  border: solid 1px #3bcacd;
+  padding: 2vh 7vw 4vh 7vw ;
+}
+
+.more-search{
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
