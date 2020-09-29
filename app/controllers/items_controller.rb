@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show,:update,:destroy]
-  before_action :category_set, only: [:category_search, :index, :edit, :show,:update,:destroy]
+  before_action :category_set, only: [:category_search, :index, :edit, :show, :update, :destroy, :search]
+  before_action :search_items, only: [:category_search, :search]
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -46,6 +47,13 @@ class ItemsController < ApplicationController
   def category_search
     @items = Item.where(category_id: params[:format]).order("created_at DESC")
     @category = Category.find(params[:format])
+    
+  end
+
+  def search
+    @results = @p.result.all
+    @items = Item.where(params[:q][:category_id]).order("created_at DESC")
+    @category = Category.find(params[:q][:category_id])
   end
 
 
@@ -61,5 +69,10 @@ class ItemsController < ApplicationController
 
   def category_set
     @categorys = Category.where(id: 2..10)
+  end
+
+  def search_items
+    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+    # 慣習的に@p or @q
   end
 end

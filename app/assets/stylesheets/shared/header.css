@@ -4,7 +4,7 @@
 
 .top-page-header {
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 2vh 15vw 0 15vw;
   display: flex;
   flex-direction: column;
 }
@@ -51,7 +51,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  padding: 1vh 0;
+  padding: 2vh 0 1vh 0;
 }
 
 .lists-left {
@@ -66,11 +66,15 @@
   color: #333333;
   position: relative;
   padding: 10px 10px;
+  font-weight: bold;
+  font-size: 17px;
 }
 
 .brand-btn {
   text-decoration: none;
   color: #333333;
+  font-weight: bold;
+  font-size: 17px;
 }
 
 .lists-right {
@@ -109,13 +113,14 @@
 .show-list {
   display: none;
   position: absolute;
-  top: 110px;
+  top: 111px;
   z-index: 10;
+  height: 1000px;
   /* padding: 20px */
 }
 
 .category-list{
-  padding: 15px 25px 15px 20px;
+  padding: 10px 25px 10px 20px;
   background-color: #FFF;
   text-decoration:none;
 }
