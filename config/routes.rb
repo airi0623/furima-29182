@@ -4,5 +4,14 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     resources :orders
+    collection do
+      get 'category_search'
+    end
   end
+  # resources :items do
+  #   collection do
+  #     get 'category_search'
+  #   end
+  # end
+
 end

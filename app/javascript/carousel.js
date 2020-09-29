@@ -1,12 +1,3 @@
-// $(function() {
-//   $('#slick').slick({
-//       dots: true, //スライドの下にドットのナビゲーションを表示
-//       infinite:  true
-
-//   });
-// });
-
-
 $(function() {
   $('#slick').slick({
     dots: true,

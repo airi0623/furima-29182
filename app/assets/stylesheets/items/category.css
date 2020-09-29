@@ -1,0 +1,15 @@
+.title-bar{
+  height: 60px;
+  width: 100vw;
+  margin-bottom: 50px;
+  background-color: #3bcacd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title{
+  color: #FFF;
+  font-size: 20px;
+  font-weight: bold;
+}

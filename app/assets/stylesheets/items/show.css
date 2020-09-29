@@ -25,6 +25,11 @@
   font-size: 25px;
 }
 
+#slick {
+  width: 60vw;
+  height: 500px;
+}
+
 .item-box-img {
   height: 50vh;
   width: 60vw;
@@ -33,12 +38,6 @@
   object-fit: contain;
   margin:0 auto;
 }
-
-#slick {
-  width: 60vw;
-  height: 500px;
-}
-
 
 .slick-slide{
 

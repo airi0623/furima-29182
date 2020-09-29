@@ -11,8 +11,8 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+      <li><%= link_to 'カテゴリー', "#", class: "category-btn", id: "category-btn" %></li>
+      <li><%= link_to 'ブランド', "#", class: "brand-btn", id: "brand-btn" %></li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
@@ -24,6 +24,15 @@
       <% end %>
     </ul>
   </div>
+
+  <!--カテゴリーリスト-->
+    
+  <ul class='show-list', id="pull-down-category" >
+    <% @categorys.each do |category|%>
+      <li class ='category-list'><%= link_to category.name, category_search_items_path(category.id), method: :get %></li>
+      <%end%> 
+    </ul>
+    <!--カテゴリーリスト-->
 </header>
 
 
