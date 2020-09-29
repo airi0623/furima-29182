@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
   const categoryLists = document.querySelectorAll(".category-list");
   
   
-  // カテゴリーボタン
+  // カテゴリーボタン、リスト表示の有無
   categoryBtn.addEventListener('mouseover', function(){
     categoryBtn.setAttribute("style", "background-color:#3ccace; color:#FFF;");
   })
