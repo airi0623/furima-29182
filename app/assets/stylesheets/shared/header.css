@@ -65,7 +65,7 @@
   margin-right: 3vw;
   color: #333333;
   position: relative;
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
 .brand-btn {
@@ -110,11 +110,16 @@
   display: none;
   position: absolute;
   top: 110px;
-  
-  padding: 20px
+  z-index: 10;
+  /* padding: 20px */
 }
 
 .category-list{
-  padding: 15px 25px 15px 15px;
+  padding: 15px 25px 15px 20px;
   background-color: #FFF;
+  text-decoration:none;
+}
+
+a {
+  color: inherit;
 }

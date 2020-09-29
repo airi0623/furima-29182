@@ -26,15 +26,11 @@
   </div>
 
   <!--カテゴリーリスト-->
-    <ul class='show-list', id="pull-down-category" >
-      <li class ='category-list'><%= link_to 'レディース', new_user_session_path, class: "login" %>レディース</li>
-      <li class ='category-list'>メンズ</li>
-      <li class ='category-list'>ベビー・キッズ</li>
-      <li class ='category-list'>本・音楽</li>
-      <li class ='category-list'>おもちゃ</li>
-      <li class ='category-list'>家電・スマホ・カメラ</li>
-      <li class ='category-list'>ハンドメイド</li>
-      <li class ='category-list'>その他</li>
+    
+  <ul class='show-list', id="pull-down-category" >
+    <% @categorys.each do |category|%>
+      <li class ='category-list'><%= link_to category.name, category_search_items_path(category.id), method: :get %></li>
+      <%end%> 
     </ul>
     <!--カテゴリーリスト-->
 </header>

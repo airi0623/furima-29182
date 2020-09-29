@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+
+<div class = title-bar>
+  <h1 class = title><%= @category.name %></h1>
+</div>
+
+
+<div class='main'>
+<ul class='item-lists'>
+  <% @items.each do |item|%>
+    <%# 商品1つ１つ%>
+    <li class='list'>
+      <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.images[0], class: "item-img" %>
+          <%# sold out 表示 %>
+          <% if item.order.present?%>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+          <% end %>
+          <%# sold out 表示 %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.item_name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price%>円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </li>
+    <%# 商品1つ１つ%>
+  <% end %>
+</div>
+
