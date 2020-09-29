@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     resources :orders
+    resources :likes, only: [:create, :destroy]
     collection do
       get 'category_search'
     end

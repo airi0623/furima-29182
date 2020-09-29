@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to   :user
   has_one      :order
   has_many_attached :images
+  belongs_to   :like
   # ここでカラム名が決まる アクティブハッシュの
 
   #空の投稿を保存できないようにする
