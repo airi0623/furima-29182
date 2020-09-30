@@ -1,0 +1,53 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+  <!-- 出品中の商品 ----------------------------->
+  <div class='item-contents'>
+    <div class="title-bar">
+      <h2 class="title-page-top">出品中の商品</h2>
+    </div>
+
+    <ul class='item-lists'>
+      <% @items.each do |item|%>
+        <%# 商品1つ１つ%>
+        <%= render 'shared/item', item: item%>
+        <%# 商品1つ１つ%>
+      <% end %>
+    </ul>
+
+    <% if @items == nil %>
+      <span>出品中の商品はありません</span>
+    <% end %>
+  </div>
+  <!-- 出品中の商品 ------------------------------>
+
+
+  <!-- お気に入りを押した商品 ---------------------->
+  <div class='item-contents'>
+    <div class="title-bar">
+      <h2 class="title-page-top">お気に入り</h2>
+    </div>
+
+
+
+
+  </div>
+  <!-- お気に入りを押した商品 ---------------------->
+
+
+  <!-- 個人情報編集 ------------------------------>
+  <div class='item-contents'>
+    <div class="title-bar">
+      <h2 class="title-page-top">個人情報</h2>
+    </div>
+
+
+
+
+  </div>
+  <!-- 個人情報編集 ------------------------------>
+
+
+</div>
+
+<%= render "shared/footer" %>
