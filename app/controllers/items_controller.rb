@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
   end 
 
   def show
+    @like = Like.new
+    @count = Like.where(item_id: @item.id).length
   end
 
   def edit

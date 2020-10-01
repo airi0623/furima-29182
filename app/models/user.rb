@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many   :products
   has_one    :order
+  has_many :likes
+  has_many :items, through: :likes
   with_options presence: true do
     validates :nickname 
     validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "は全角(漢字・平仮名)で入力してください"}
