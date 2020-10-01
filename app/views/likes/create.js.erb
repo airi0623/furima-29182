@@ -1,0 +1,3 @@
+$("#like-btn-<%= @item.id %>").html("<%= escape_javascript(render partial: "likes/like", locals: { item: @item }) %>");
+
+

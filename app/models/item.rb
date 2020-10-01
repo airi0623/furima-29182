@@ -9,8 +9,14 @@ class Item < ApplicationRecord
   belongs_to   :user
   has_one      :order
   has_many_attached :images
-  belongs_to   :like
+  has_many :likes
+  has_many :users, through: :likes
   # ここでカラム名が決まる アクティブハッシュの
+
+  # すでにいいねしたかどうか」を判断するためのメソッド
+  def liked_by?(user)
+    likes.where(user_id: user).exists?
+  end
 
   #空の投稿を保存できないようにする
   with_options presence: true do

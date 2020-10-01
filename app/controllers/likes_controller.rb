@@ -1,12 +1,17 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    @like = current_user.likes.create(item_id: params[:item_id])
-    redirect_back(fallback_location: root_path)
+    user = current_user
+    @item = Item.find(params[:item_id])
+    Like.create!(user_id: @item.user_id, item_id: @item.id)
+    #render 'create.js.erb'
   end
 
   def destroy
-    @like = Like.find_by(item_id: params[:item_id], user_id: current_user.id)
-    @like.destroy
-    redirect_back(fallback_location: root_path)
+    @item = Item.find(params[:item_id])  
+    like = Like.find_by(user_id: @item.user_id, item_id: @item.id )
+    like.delete
+    #render 'destroy.js.erb'
   end
 end
