@@ -57,9 +57,9 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
 }
 
+/* カテゴリー ボタン */
 .category-btn {
   text-decoration: none;
   margin-right: 3vw;
@@ -69,6 +69,22 @@
   font-weight: bold;
   font-size: 17px;
 }
+
+/* カテゴリー リスト */
+.show-list {
+  display: none;
+  position: absolute;
+  top: 106px;
+  z-index: 10;
+  height: 1000px;
+}
+
+.category-list{
+  padding: 10px 25px 10px 20px;
+  background-color: #FFF;
+  text-decoration:none;
+}
+/* カテゴリー リスト */
 
 .brand-btn {
   text-decoration: none;
@@ -109,22 +125,7 @@
   color: #333333;
 }
 
-/* リスト表示 */
-.show-list {
-  display: none;
-  position: absolute;
-  top: 111px;
-  z-index: 10;
-  height: 1000px;
-  /* padding: 20px */
-}
-
-.category-list{
-  padding: 10px 25px 10px 20px;
-  background-color: #FFF;
-  text-decoration:none;
-}
-
+/* aタグの色消し */
 a {
   color: inherit;
 }
