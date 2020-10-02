@@ -47,13 +47,31 @@
       <h2 class="title-page-top">個人情報</h2>
     </div>
 
-
-
-
+    <div class = "table-user" >
+      <table border = "1" bordercolor= #3bcacd>
+      <tr>
+        <th>ニックネーム</th>
+        <td><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>名前</th>
+        <td><%= @user.family_name %><%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <th>誕生日</th>
+        <td><%= @user.birth_date %></td>
+      </tr>
+      </table>
+    
+      
+        <%= link_to "編集する", edit_user_registration_path, class:"edit-btn" %>  
+     
+    </div>
   </div>
   <!-- 個人情報編集 ------------------------------>
 
-
-</div>
-
-<% render "shared/footer" %>
+<%= render "shared/footer" %>

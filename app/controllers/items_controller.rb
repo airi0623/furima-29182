@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def show
     @like = Like.new
-    @count = Like.where(item_id: @item.id).length
+    #@count = Like.where(item_id: @item.id).length
   end
 
   def edit
@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
+      binding.pry
       redirect_to root_path
     else
       render :edit

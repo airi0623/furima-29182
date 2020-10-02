@@ -7,16 +7,17 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = Item.where(user_id: params[:id]).order("created_at DESC")
-    
-    like = Like.where(user_id: current_user.id)
+  end
 
-    
-    # @like_items = Item.where(params:[item_id]) 
-    #@like_items = Item.find(params[:id][]) wrong number of arguments (given 0, expected 1..2)
-    #@like_items = Item.find(id: :item_id) Couldn't find Item with 'id'={:id=>:item_id}
-    #@like_items = Item.find(item_id) undefined local variable or method `item_id' for #<UsersController:0x00007fa108b60890> Did you mean? item_url
-    #@like_items = Item.where(params:[item_id]) undefined local variable or method `item_id' for #<UsersController:0x00007fa108f28f68> Did you mean? item_url
-    #@like_items = Item.find(like.item_id)
+  def update
+    @user = User.find(params[:id])
+    if current_user.update(user_params)
+      redirect_to user_path
+    else
+      render :show # 表示させたいビューのアクション
+    end
+  
+    #@count = Like.where(item_id: @item.id).length
   end
 
 
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
   def category_set
     @categorys = Category.where(id: 2..10)
   end
+
+  def user_params
+    params.require(:user).permit(:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana,:birth_date, :email ,:password)
+  end
 end
-
-
