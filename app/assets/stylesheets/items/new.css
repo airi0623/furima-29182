@@ -95,7 +95,18 @@
   height: 150px;
   object-fit: contain;
 }
-/*object-fit: cover;*/
+
+.image-size::after{
+  content: '';
+  width: 70px;
+  height: 50px;
+  background-color: #3ccace;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* ----------------------追加*/
 /* /出品画像 */
 

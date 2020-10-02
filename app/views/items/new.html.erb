@@ -24,11 +24,12 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :images, name:"item[images][]", id:"item-image"%>
+        <%= f.file_field :images, name:"item[images][]", id:"item-image",data: {index:0}%>
       </div>
     </div>
     <!--  preview -->
     <div id="image-list"></div>
+    <%# ここに画像とボタンを追加していく %>
     <!--  preview -->
     <%# /出品画像 %>
 
