@@ -25,12 +25,18 @@
   <!-- お気に入りを押した商品 ---------------------->
   <div class='item-contents'>
     <div class="title-bar">
-      <h2 class="title-page-top">お気に入り</h2>
+      <h2 class="title-page-top">お気に入りの商品</h2>
     </div>
 
-
-
-
+    <ul class='item-lists'>
+      <% current_user.likes.each do |like| %>
+        <% if like.item == nil %>
+          <span>お気に入りの商品はありません</span>
+        <% else%>
+          <%= render 'shared/item', item: like.item %>
+        <% end %>
+      <% end %>
+    </ul>     
   </div>
   <!-- お気に入りを押した商品 ---------------------->
 
@@ -50,4 +56,4 @@
 
 </div>
 
-<%= render "shared/footer" %>
+<% render "shared/footer" %>

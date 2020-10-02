@@ -1,13 +1,13 @@
-<% if @item.liked_by?(@item.user_id) %>
+<% if item.liked_by?(item.user_id) %>
   <%= image_tag "star_yellow.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-  <%= link_to item_likes_path(@item.id), method: :delete, remote: true, id: :"like-button-#{@item.id}" do %>
+  <%= link_to item_likes_path(item.id), method: :delete, remote: true, id: :"like-button-#{item.id}" do %>
     <i class="fa-lg fas fa-heart icon-btn liked"></i>
-    <span>お気に入りを解除  <%= @item.likes.length %></span>
+    <span>お気に入りを解除  <%= item.likes.length %></span>
   <% end %>
 <% else %>
   <%= image_tag "star_yellow.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-  <%= link_to item_likes_path(@item.id), method: :post, remote: true, id: :"like-button-#{@item.id}" do %>
+  <%= link_to item_likes_path(item.id), method: :post, remote: true, id: :"like-button-#{item.id}" do %>
     <i class="fa-lg fas fa-heart icon-btn not-like"></i>
-    <span>お気に入り  <%= @item.likes.length %></span>
+    <span>お気に入り  <%= item.likes.length %></span>
   <% end %>
 <% end %>
