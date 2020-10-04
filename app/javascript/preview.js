@@ -1,19 +1,24 @@
 if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
   document.addEventListener('DOMContentLoaded', function(){
-    const ImageList = document.getElementById('image-list');
+    const clickUpload= document.getElementById('click-upload-id');
+    const imageBoxBig = document.getElementById("image-box-big-id");
 
     const createImageHTML = (blob,index) => {
+      console.log(index)
+      
       // blob・・・画像データ  index・・・番号
-      const imageDataIndex = document.querySelector(`#image-element[data-index="${index}"]`);
+      const imageDataIndex = document.querySelector(`#image-box[data-index="${index}"]`);
 
       if (imageDataIndex === null){
-      console.log("aaa")
-        // 画像を表示するためのdiv要素を生成
-        const imageElement = document.createElement('div');
-        imageElement.setAttribute('id', "image-element")
-        imageElement.setAttribute('data-index', index)
-        const imageElementNum = document.querySelectorAll('#image-element').length
+      console.log("新規作成")
+      const imageElementNum = document.querySelectorAll('#image-box').length
 
+        // 画像を表示するためのdiv要素を生成
+        const imageBox = document.createElement('div');
+        imageBox.setAttribute('id', "image-box")
+        imageBox.setAttribute('class', "image-box")
+        imageBox.setAttribute('data-index', index)
+              
         // 表示する画像を生成
         const blobImage = document.createElement('img');
         blobImage.setAttribute('src', blob);
@@ -21,49 +26,63 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
         // ファイル選択ボタンを生成
         const inputHTML = document.createElement('input')
-        inputHTML.setAttribute('id', `item_image_${imageElementNum}`)
+        inputHTML.setAttribute('id', `item-image-${imageElementNum }`)
         inputHTML.setAttribute('name', 'item[images][]')
         inputHTML.setAttribute('type', 'file')
-        // inputHTML.setAttribute('style', 'display :none ;')
+        inputHTML.setAttribute('class', 'click-btn')
+        inputHTML.setAttribute('data-index', index+1)
+
+        // ラベルのfor属性を変更
+        clickUpload.setAttribute('for', `item-image-${imageElementNum }`)
 
         // 生成したHTMLの要素をブラウザに表示させる
-        imageElement.appendChild(blobImage);
-        imageElement.appendChild(inputHTML);
-        ImageList.appendChild(imageElement);
+        imageBox.appendChild(blobImage);        
+        imageBoxBig.appendChild(imageBox);
+        clickUpload.appendChild(inputHTML);
 
+        // imageBoxBigの中に編集ボタン、削除ボタンを生成
+        const HTML = `
+            <div class = "change-box-edit-delete">
+              <div class = "change-box" id = item-image-edit-${imageElementNum } data-index="${imageElementNum}" >編集</div>
+              <div class = "change-box" id = item-image-delete-${imageElementNum } data-index="${imageElementNum}" >削除</div>
+            </div>` ;
+        imageBox.insertAdjacentHTML("beforeend", HTML);
+
+        const editImage = document.getElementById(`item-image-edit-${imageElementNum }`);
+        editImage.addEventListener('click',function(e){
+          console.log("編集")
+          const targetIndex = e.target.dataset.index; //専用のメソッド dataset getattrivuteでもいける？
+          const fileField = document.querySelector(`input[type="file"][data-index="${targetIndex}"]`); //属性セレクター
+          fileField.click();  //ボタンをクリックさせてる
+          // const blobImage = imageDataIndex.querySelector('img');
+          // blobImage.setAttribute('src', blob);
+        });
+
+        // ファイルにデータが入ったら再度発火
         inputHTML.addEventListener('change',(e) => {
           const file = e.target.files[0];
           const blob = window.URL.createObjectURL(file);
-          // let index = index + 1
-          createImageHTML(blob,index + 1)
-        })
+          const index = Number(e.target.dataset.index);
+          createImageHTML(blob, index)
+        });
       } else {
-        console.log("bbb")
         const blobImage = imageDataIndex.querySelector('img');
-        // imageDataIndex.setAttribute('src', blob)
         blobImage.setAttribute('src', blob);
-
-
+        console.log("編集")
       }
+      
+
     };
 
     document.getElementById('item-image').addEventListener('change', function(e){
-      const file = e.target.files[0];
+      console.log(e)
+
+      const file = e.target.files[0]; //1マイ限定なのでこの書き方
       const blob = window.URL.createObjectURL(file);
       // ↑fileをURLに変換している
       let index = Number(e.target.getAttribute('data-index'))
-      console.log(index)
+      // debugger
       createImageHTML(blob,index);
     });
   });
 }
-
-// // 画像が表示されている場合のみ、すでに存在している画像を削除する
-// console.log(123);
-// const imageContent = document.querySelector('img');
-// if (imageContent){
-//   imageContent.remove();
-// }
-
-//  console.log(imageElement)
-      //  console.log(imageElementNum)

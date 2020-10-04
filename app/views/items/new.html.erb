@@ -10,35 +10,31 @@
     <%# エラーメッセージを表示させたい時とかインスタンス変数を渡さなければならない時は model:@item とする%>
 
     <%= render 'shared/error_messages', model: f.object %>
-    <%# インスタンスを渡している？ ここのインスタンスってf.object?? %>
-
-
 
     <%# 出品画像 %>
-    <div class="img-upload">
+    <div class="item-upload">
       <div class="weight-bold-text">
         出品画像
         <span class="indispensable">必須</span>
+        <%# <div>最大８枚まで画像をアップロードできます</div> %>
       </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :images, name:"item[images][]", id:"item-image",data: {index:0}%>
+
+      <div class = "img-upload-box" id="img-upload-box" >
+        <div class = "image-box-big" id="image-box-big-id">
+          <%# <div class = "image-box" data-index = "index">
+            <img src ="URL" class = "image-size">
+              <div class = "change-box-edit-delete">
+              <div class = "change-box" id = item-image-edit-${imageElementNum } data-index="${imageElementNum}" >編集</div>
+              <div class = "change-box" id = item-image-delete-${imageElementNum } data-index="${imageElementNum}" >削除</div>
+            </div>` 
+          </div>  %>
+        </div>
+        <label class ="click-upload" for = "item-image" id ="click-upload-id">
+          <%= image_tag "camera-icon.png" ,class:"camera-icon" ,width:"25",height:"25"%>
+          <span>クリックして画像をアップロード</span>
+          <%= f.file_field :images, name:"item[images][]", id:"item-image",data: {index:0}, class: "click-btn"%>
+        </label>
       </div>
-    </div>
-    <!--  preview -->
-    <div id="image-list"></div>
-    <%# ここに画像とボタンを追加していく %>
-    <!--  preview -->
-    <%# /出品画像 %>
-
-    <!-- 画像複数枚 -->
-    <% @item.images.each do |image| %>
-      <%= image_tag image, class: 'image-size' %>
-    <% end %>
-    <!-- 画像複数枚 -->
-
     <%# /出品画像 %>
 
     <%# 商品名と商品説明 %>
@@ -160,8 +156,9 @@
     <%# /下部ボタン %>
   </div>
   <% end %>
+</div>
 
-  <footer class="items-sell-footer">
+<footer class="items-sell-footer">
     <ul class="menu">
       <li><a href="#">プライバシーポリシー</a></li>
       <li><a href="#">フリマ利用規約</a></li>
@@ -172,4 +169,3 @@
       ©︎Furima,Inc.
     </p>
   </footer>
-</div>
