@@ -75,7 +75,7 @@
 .item-upload {
   flex-wrap: wrap;
   padding: 2vh 0;
-  overflow：hidden;
+  overflow: hidden;
 }
 
 /* 出品画像アップロード */
@@ -129,28 +129,6 @@
   display :none;
 }
 
-
-/* .image-size{
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-}
-
-.image-size::after{
-  content: '';
-  width: 70px;
-  height: 50px;
-  background-color: #3ccace;
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-} */
-
-
-/* 出品画像アップロード */
-
-
 /* 商品名と商品説明 */
 .new-items {
   padding: 2vh 0;
@@ -168,7 +146,6 @@
 .items-explain {
   margin-top: 2vh;
 }
-
 /* /商品名と商品説明 */
 
 /* 商品の詳細など */
@@ -186,7 +163,6 @@
 .select-box {
   margin: 2vh 0;
 }
-
 /* /商品の詳細など */
 
 /* 販売価格 */

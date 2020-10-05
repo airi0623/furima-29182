@@ -73,3 +73,4 @@ gem 'payjp'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'ransack'
+gem "aws-sdk-s3", require: false
