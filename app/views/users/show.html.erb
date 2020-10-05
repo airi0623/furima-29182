@@ -25,12 +25,18 @@
   <!-- お気に入りを押した商品 ---------------------->
   <div class='item-contents'>
     <div class="title-bar">
-      <h2 class="title-page-top">お気に入り</h2>
+      <h2 class="title-page-top">お気に入りの商品</h2>
     </div>
 
-
-
-
+    <ul class='item-lists'>
+      <% current_user.likes.each do |like| %>
+        <% if like.item == nil %>
+          <span>お気に入りの商品はありません</span>
+        <% else%>
+          <%= render 'shared/item', item: like.item %>
+        <% end %>
+      <% end %>
+    </ul>     
   </div>
   <!-- お気に入りを押した商品 ---------------------->
 
@@ -41,13 +47,28 @@
       <h2 class="title-page-top">個人情報</h2>
     </div>
 
-
-
-
+    <div class = "table-user" >
+      <table border = "1" bordercolor= #dedede>
+      <tr>
+        <th class="detail-profile">ニックネーム</th>
+        <td><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <th class="detail-profile">メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th class="detail-profile">名前</th>
+        <td><%= @user.family_name %><%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <th class="detail-profile">誕生日</th>
+        <td><%= @user.birth_date %></td>
+      </tr class="detail-profile">
+      </table>
+        <%= link_to "編集する", edit_user_registration_path, class:"edit-btn" %>  
+    </div>
   </div>
   <!-- 個人情報編集 ------------------------------>
-
-
-</div>
 
 <%= render "shared/footer" %>

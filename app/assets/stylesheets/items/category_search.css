@@ -23,7 +23,8 @@
   background-color: #3ccace;
   position: absolute;
   bottom: -10px;
-  left: 30%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* 検索画面 ------------------*/
