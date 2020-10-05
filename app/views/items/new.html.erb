@@ -29,10 +29,10 @@
             </div>` 
           </div>  %>
         </div>
-        <label class ="click-upload" for = "item-image" id ="click-upload-id">
+        <label for = "item-image" class ="click-upload" id ="click-upload-id" >
           <%= image_tag "camera-icon.png" ,class:"camera-icon" ,width:"25",height:"25"%>
           <span>クリックして画像をアップロード</span>
-          <%= f.file_field :images, name:"item[images][]", id:"item-image",data: {index:0}, class: "click-btn"%>
+          <%= f.file_field :images, id:"item-image", name:"item[images][]", class: "click-btn", data: {index:0} %>
         </label>
       </div>
     <%# /出品画像 %>

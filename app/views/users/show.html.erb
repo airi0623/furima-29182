@@ -48,23 +48,23 @@
     </div>
 
     <div class = "table-user" >
-      <table border = "1" bordercolor= #3bcacd>
+      <table border = "1" bordercolor= #dedede>
       <tr>
-        <th>ニックネーム</th>
+        <th class="detail-profile">ニックネーム</th>
         <td><%= @user.nickname %></td>
       </tr>
       <tr>
-        <th>メールアドレス</th>
+        <th class="detail-profile">メールアドレス</th>
         <td><%= @user.email %></td>
       </tr>
       <tr>
-        <th>名前</th>
+        <th class="detail-profile">名前</th>
         <td><%= @user.family_name %><%= @user.first_name %></td>
       </tr>
       <tr>
-        <th>誕生日</th>
+        <th class="detail-profile">誕生日</th>
         <td><%= @user.birth_date %></td>
-      </tr>
+      </tr class="detail-profile">
       </table>
         <%= link_to "編集する", edit_user_registration_path, class:"edit-btn" %>  
     </div>

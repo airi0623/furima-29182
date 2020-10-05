@@ -26,14 +26,15 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
         // ファイル選択ボタンを生成
         const inputHTML = document.createElement('input')
-        inputHTML.setAttribute('id', `item-image-${imageElementNum }`)
+        inputHTML.setAttribute('id', `item-image-${index}`)
         inputHTML.setAttribute('name', 'item[images][]')
         inputHTML.setAttribute('type', 'file')
         inputHTML.setAttribute('class', 'click-btn')
         inputHTML.setAttribute('data-index', index+1)
+        // 次にボタンを押した時に撮ってこれるindexの値となる
 
         // ラベルのfor属性を変更
-        clickUpload.setAttribute('for', `item-image-${imageElementNum }`)
+        clickUpload.setAttribute('for', `item-image-${index}`)
 
         // 生成したHTMLの要素をブラウザに表示させる
         imageBox.appendChild(blobImage);        
@@ -43,19 +44,31 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
         // imageBoxBigの中に編集ボタン、削除ボタンを生成
         const HTML = `
             <div class = "change-box-edit-delete">
-              <div class = "change-box" id = item-image-edit-${imageElementNum } data-index="${imageElementNum}" >編集</div>
-              <div class = "change-box" id = item-image-delete-${imageElementNum } data-index="${imageElementNum}" >削除</div>
+              <div class = "change-box" id = item-image-edit-${index} data-index="${index}" >編集</div>
+              <div class = "change-box" id = item-image-delete-${index} data-index="${index}" >削除</div>
             </div>` ;
         imageBox.insertAdjacentHTML("beforeend", HTML);
+          
+        // 編集ボタン押した時の挙動
+        const editImage = document.getElementById(`item-image-edit-${index}`);
+          editImage.addEventListener('click',function(e){
+            console.log("編集")
+            const targetIndex = e.target.dataset.index;  //専用のメソッド dataset getAttributeでもいける？
+            const fileField = document.querySelector(`input[type="file"][data-index="${targetIndex}"]`); //属性セレクター
+            fileField.click();  //ボタンをクリックさせてる
+            // const blobImage = imageDataIndex.querySelector('img');
+            // blobImage.setAttribute('src', blob);
+        });
 
-        const editImage = document.getElementById(`item-image-edit-${imageElementNum }`);
-        editImage.addEventListener('click',function(e){
-          console.log("編集")
-          const targetIndex = e.target.dataset.index; //専用のメソッド dataset getattrivuteでもいける？
-          const fileField = document.querySelector(`input[type="file"][data-index="${targetIndex}"]`); //属性セレクター
-          fileField.click();  //ボタンをクリックさせてる
-          // const blobImage = imageDataIndex.querySelector('img');
-          // blobImage.setAttribute('src', blob);
+        //削除ボタンを押した時の挙動
+        const deleteImage = document.getElementById(`item-image-delete-${index}`);
+          deleteImage.addEventListener("click", function(e){
+            console.log("削除")
+            const targetIndex = e.target.dataset.index;
+            const fileField = document.querySelector(`input[type="file"][data-index="${targetIndex}"]`);
+            const ImageElement = document.querySelector(`.image-box[data-index="${targetIndex}"]`)
+            fileField.remove()
+            ImageElement.remove()
         });
 
         // ファイルにデータが入ったら再度発火
@@ -74,7 +87,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 
     };
 
-    document.getElementById('item-image').addEventListener('change', function(e){
+    document.getElementById('item-image').addEventListener('change', (e) => {
       console.log(e)
 
       const file = e.target.files[0]; //1マイ限定なのでこの書き方

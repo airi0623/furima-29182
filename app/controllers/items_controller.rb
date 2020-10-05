@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      binding.pry
       redirect_to root_path
     else
       render :edit

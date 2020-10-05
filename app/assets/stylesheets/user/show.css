@@ -23,9 +23,9 @@ table{
   margin-bottom: 20px;
 }
 
-table th{
+table th.detail-profile{
   padding:10px 20px 10px 20px;
-  width: 20vh;
+  width: 30vh;
   background-color: #3bcacd;
   color : #FFF;
 }
