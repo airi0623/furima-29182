@@ -65,8 +65,8 @@
               <div class='item-price'>
                 <span><%= item.price%>円<br>(税込み)</span>
                 <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
+                  <%= image_tag "star_yellow.png", class:"star-icon" %>
+                  <span class='star-count'><%= item.likes.length %></span>
                 </div>
               </div>
             </div>
