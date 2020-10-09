@@ -19,14 +19,25 @@ app/assets/stylesheets/items/new.css %>
         出品画像
         <span class="indispensable">必須</span>
       </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
+
+      <div class = "img-upload-box" id="img-upload-box" >
+        <div class = "image-box-big" id="image-box-big-id">
+          <%# <div class = "image-box" data-index = "index">
+            <img src ="URL" class = "image-size">
+              <div class = "change-box-edit-delete">
+              <div class = "change-box" id = item-image-edit-${imageElementNum } data-index="${imageElementNum}" >編集</div>
+              <div class = "change-box" id = item-image-delete-${imageElementNum } data-index="${imageElementNum}" >削除</div>
+            </div>` 
+          </div>  %>
+        </div>
+        <label for = "item-image" class ="click-upload" id ="click-upload-id" >
+          <%= image_tag "camera-icon.png" ,class:"camera-icon" ,width:"25",height:"25"%>
+          <span>クリックして画像をアップロード</span>
+          <%= f.file_field :images, id:"item-image", name:"item[images][]", class: "click-btn", data: {index:0} %>
+        </label>
       </div>
-    </div>
     <%# /出品画像 %>
+
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
@@ -146,6 +157,7 @@ app/assets/stylesheets/items/new.css %>
     <%# /下部ボタン %>
   </div>
   <% end %>
+</div>
 
   <footer class="items-sell-footer">
     <ul class="menu">
@@ -158,4 +170,3 @@ app/assets/stylesheets/items/new.css %>
       ©︎Furima,Inc.
     </p>
   </footer>
-</div>

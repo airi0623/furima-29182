@@ -1,4 +1,4 @@
-<% if item.liked_by?(item.user_id) %>
+<% if item.liked_by?(current_user.id) %>
   <%= image_tag "star_yellow.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
   <%= link_to item_likes_path(item.id), method: :delete, remote: true, id: :"like-button-#{item.id}" do %>
     <i class="fa-lg fas fa-heart icon-btn liked"></i>

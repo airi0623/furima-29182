@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
   get 'items/search'
+  get 'likes' => 'likes#index'
   resources :users
   resources :items do
     resources :orders
