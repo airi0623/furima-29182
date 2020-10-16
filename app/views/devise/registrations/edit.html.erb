@@ -3,13 +3,18 @@
       <h2 class="title-page-top">個人情報編集</h2>
     </div>
 
-  <%= form_with model: @user, url: user_registration_path, method: :put, class: 'registration-main-edit',  local: true do |f|%>
+  <%= form_with model: @user, url: user_registration_path, method: :patch, class: 'registration-main-edit',  local: true do |f|%>
     <div class='form-wrap-edit'>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">ニックネーム</label>
           <span class="indispensable">必須</span>
         </div>
+        
+    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%= render 'shared/error_messages', model: f.object %>
+    <%#= render partial: "form", locals: { form: form } %>
+
         <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
       </div>
       <div class="form-group">
