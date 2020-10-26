@@ -7,7 +7,6 @@ class LikesController < ApplicationController
   end
 
   def create
-
     user = current_user.id
     @item = Item.find(params[:item_id])
     Like.create!(user_id: user, item_id: @item.id)
