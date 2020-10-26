@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if current_user.update(user_params)
+      @user = User.find(params[:id])
       redirect_to user_path
     else
       render :show # 表示させたいビューのアクション
